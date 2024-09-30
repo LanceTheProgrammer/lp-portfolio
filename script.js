@@ -44,6 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const projects = [
       {
+        imageSrc: "./images/ecommerce.png",
+        projectName: "Full Stack E-Commerce",
+        projectURL: "https://ecommerce-fs-frontend.vercel.app/",
+      },
+      {
+        imageSrc: "./images/health.png",
+        projectName: "Frontend Doctor Appointment",
+        projectURL: "https://health-lance.netlify.app/",
+      },
+      {
         imageSrc: "./images/todo-react.png",
         projectName: "To-Do List",
         projectURL: "https://ltp-todo-react.netlify.app/",
