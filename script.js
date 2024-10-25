@@ -44,14 +44,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const projects = [
       {
+        imageSrc: "./images/doctor.png",
+        projectName: "Doctor Website",
+        projectURL: "https://doctor-appointment-frontend-eta.vercel.app/",
+      },
+      {
         imageSrc: "./images/ecommerce.png",
-        projectName: "Full Stack E-Commerce",
+        projectName: "E-Commerce",
         projectURL: "https://ecommerce-fs-frontend.vercel.app/",
       },
       {
-        imageSrc: "./images/health.png",
-        projectName: "Frontend Doctor Appointment",
-        projectURL: "https://health-lance.netlify.app/",
+        imageSrc: "./images/Hair.png",
+        projectName: "Barbershop",
+        projectURL: "https://hair-studio-ltp.netlify.app/",
+      },
+      {
+        imageSrc: "./images/amazon.png",
+        projectName: "Amazon design",
+        projectURL: "https://astounding-maamoul-8fd06a.netlify.app/",
+      },
+      {
+        imageSrc: "./images/video.png",
+        projectName: "YouTube design",
+        projectURL: "https://video-player-vite.netlify.app/",
+      },
+      {
+        imageSrc: "./images/music-vite.png",
+        projectName: "Spotify design",
+        projectURL: "https://ltp-music-vite.netlify.app/",
+      },
+      {
+        imageSrc: "./images/gemini.png",
+        projectName: "AI Chat",
+        projectURL: "https://stately-axolotl-14ed3d.netlify.app/",
       },
       {
         imageSrc: "./images/todo-react.png",
@@ -70,38 +95,20 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         imageSrc: "./images/crypto.png",
-        projectName: "Crypto Market Tracker",
+        projectName: "Crypto Market ",
         projectURL: "https://ltp-crypto.netlify.app/",
       },
-      {
-        imageSrc: "./images/gemini.png",
-        projectName: "AI Chat",
-        projectURL: "https://stately-axolotl-14ed3d.netlify.app/",
-      },
+      
       {
         imageSrc: "./images/edusity.png",
         projectName: "University Website Design",
         projectURL: "https://main--mellifluous-dieffenbachia-38cc75.netlify.app/",
       },
-      {
-        imageSrc: "./images/video.png",
-        projectName: "YouTube Clone",
-        projectURL: "https://video-player-vite.netlify.app/",
-      },
-      {
-        imageSrc: "./images/music-vite.png",
-        projectName: "Spotify Clone",
-        projectURL: "https://ltp-music-vite.netlify.app/",
-      },
+      
       {
         imageSrc: "./images/netflix.png",
         projectName: "Netflix Clone",
         projectURL: "https://main--loquacious-moxie-a5ec06.netlify.app/",
-      },
-      {
-        imageSrc: "./images/Hair.png",
-        projectName: "Barbershop design",
-        projectURL: "https://hair-studio-ltp.netlify.app/",
       },
       {
         imageSrc: "./images/amazon.png",
@@ -147,80 +154,71 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    function createElementWithClasses(tag, classes) {
+      const element = document.createElement(tag);
+      element.className = classes;
+      return element;
+    }
+    
+    function createTextElement(tag, classes, text) {
+      const element = document.createElement(tag);
+      element.className = classes;
+      element.textContent = text;
+      return element;
+    }
+    
     function generateProjectTile(project) {
-      const projectTile = document.createElement("a");
+      const projectTile = createElementWithClasses("a", `
+        relative cursor-pointer group rounded-lg overflow-hidden
+        aspect-square bg-cover bg-center
+      `);
       projectTile.href = project.projectURL;
       projectTile.target = "_blank";
-      projectTile.classList.add(
-        "relative",
-        "cursor-pointer",
-        "group",
-        "rounded-lg",
-        "overflow-hidden",
-        "aspect-square",
-        "bg-cover",
-        "bg-center"
-      );
       projectTile.style.backgroundImage = `url(${project.imageSrc})`;
-
-      const projectInfo = document.createElement("div");
-      projectInfo.classList.add(
-        "absolute",
-        "bottom-5",
-        "left-1/2",
-        "-translate-x-1/2",
-        "w-10/12",
-        "py-3",
-        "px-5",
-        "bg-transparent",
-        "rounded-md",
-        "flex",
-        "items-center",
-        "justify-between",
-        "duration-500",
-        "group-hover:bottom-7"
+    
+      const projectInfo = createElementWithClasses("div", `
+        absolute bottom-5 left-1/2 -translate-x-1/2 w-10/12 h-[100px] py-3 px-5
+        bg-transparent rounded-md flex items-center justify-between
+        duration-500 group-hover:bottom-7
+      `);
+    
+      // Create the project title with text overflow handling
+      const projectTitle = createTextElement(
+        "h2",
+        "font-bold text-white text-3xl relative z-10 shadow-md shadow-black/50 truncate",
+        project.projectName
       );
-
-      const projectText = document.createElement("div");
-
-      const projectTitle = document.createElement("h2");
-      projectTitle.classList.add("font-bold","text-orange-500", "text-lg");
-      projectTitle.textContent = project.projectName;
-
-      const projectType = document.createElement("p");
-      projectType.classList.add("text-sm", "text-gray-700");
-      projectType.textContent = "";
-
-      projectText.appendChild(projectTitle);
+    
+      // Add a semi-transparent overlay behind the text for extra contrast
+      const titleOverlay = createElementWithClasses("div", `
+        absolute inset-0 bg-black/40 rounded-md
+      `);
+    
+      // Wrap the title and overlay in a container to stack them
+      const titleContainer = createElementWithClasses("div", "relative");
+      titleContainer.append(titleOverlay, projectTitle);
+    
+      // Append title container to project text
+      const projectText = createElementWithClasses("div", "w-full overflow-hidden");
+      projectText.appendChild(titleContainer);
+    
+      const projectType = createTextElement("p", "text-sm text-gray-700", "");
       projectText.appendChild(projectType);
-
-      const projectIconContainer = document.createElement("div");
-      projectIconContainer.classList.add(
-        "border",
-        "rounded-full",
-        "border-black",
-        "w-9",
-        "aspect-square",
-        "flex",
-        "items-center",
-        "justify-center",
-        "shadow-[2px_2px_0_#000]",
-        "group-hover:bg-lime-300",
-        "transition"
-      );
-
-      const projectIcon = document.createElement("img");
+    
+      // Adjust projectIconContainer for consistency
+      const projectIconContainer = createElementWithClasses("div", `
+        border rounded-full border-black w-[36px] h-[36px] flex items-center
+        justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition
+      `);
+      const projectIcon = createElementWithClasses("img", "w-5");
       projectIcon.src = "./images/send-icon.png";
       projectIcon.alt = "";
-      projectIcon.classList.add("w-5");
-
+    
       projectIconContainer.appendChild(projectIcon);
-
-      projectInfo.appendChild(projectText);
-      projectInfo.appendChild(projectIconContainer);
-
+    
+      projectInfo.append(projectText, projectIconContainer);
       projectTile.appendChild(projectInfo);
-
+    
       return projectTile;
     }
 
