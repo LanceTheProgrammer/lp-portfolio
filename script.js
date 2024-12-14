@@ -45,84 +45,99 @@ document.addEventListener("DOMContentLoaded", function () {
     const projects = [
       {
         imageSrc: "./images/doctor.png",
-        projectName: "Doctor Website",
-        projectURL: "https://doctor-appointment-frontend-eta.vercel.app/",
+        projectName: "Appointment",
+        projectURL: "https://doctor-appointment-frontend-eta.vercel.app",
+      },
+      {
+        imageSrc: "./images/techsupportBG.png",
+        projectName: "TechSupport",
+        projectURL: "https://lances-tech-solutions.netlify.app",
+      },
+      {
+        imageSrc: "./images/imagify.png",
+        projectName: "AI Image",
+        projectURL: "https://imagify-frontend-nu.vercel.app",
       },
       {
         imageSrc: "./images/ecommerce.png",
         projectName: "E-Commerce",
-        projectURL: "https://ecommerce-fs-frontend.vercel.app/",
+        projectURL: "https://ecommerce-fs-frontend.vercel.app",
+      },
+      {
+        imageSrc: "./images/mern-auth.png",
+        projectName: "MERN Authentication",
+        projectURL: "https://mern-auth-frontend-omega.vercel.app/",
       },
       {
         imageSrc: "./images/Hair.png",
         projectName: "Barbershop",
-        projectURL: "https://hair-studio-ltp.netlify.app/",
+        projectURL: "https://hair-studio-ltp.netlify.app",
       },
       {
         imageSrc: "./images/amazon.png",
-        projectName: "Amazon design",
-        projectURL: "https://astounding-maamoul-8fd06a.netlify.app/",
+        projectName: "Amazon",
+        projectURL: "https://astounding-maamoul-8fd06a.netlify.app",
       },
       {
         imageSrc: "./images/video.png",
-        projectName: "YouTube design",
-        projectURL: "https://video-player-vite.netlify.app/",
+        projectName: "YouTube",
+        projectURL: "https://video-player-vite.netlify.app",
       },
       {
         imageSrc: "./images/music-vite.png",
-        projectName: "Spotify design",
-        projectURL: "https://ltp-music-vite.netlify.app/",
+        projectName: "Spotify",
+        projectURL: "https://ltp-music-vite.netlify.app",
       },
       {
         imageSrc: "./images/gemini.png",
         projectName: "AI Chat",
-        projectURL: "https://stately-axolotl-14ed3d.netlify.app/",
+        projectURL: "https://stately-axolotl-14ed3d.netlify.app",
       },
       {
         imageSrc: "./images/todo-react.png",
         projectName: "To-Do List",
-        projectURL: "https://ltp-todo-react.netlify.app/",
+        projectURL: "https://ltp-todo-react.netlify.app",
       },
       {
         imageSrc: "./images/gym-app.png",
         projectName: "Workout Generator",
-        projectURL: "https://gym-genie.netlify.app/",
+        projectURL: "https://gym-genie.netlify.app",
       },
       {
         imageSrc: "./images/weather-react.png",
         projectName: "Weather App",
-        projectURL: "https://ltp-weather.netlify.app/",
+        projectURL: "https://ltp-weather.netlify.app",
       },
       {
         imageSrc: "./images/crypto.png",
         projectName: "Crypto Market ",
-        projectURL: "https://ltp-crypto.netlify.app/",
+        projectURL: "https://ltp-crypto.netlify.app",
       },
       
       {
         imageSrc: "./images/edusity.png",
-        projectName: "University Website Design",
-        projectURL: "https://main--mellifluous-dieffenbachia-38cc75.netlify.app/",
+        projectName: "University",
+        projectURL: "https://main--mellifluous-dieffenbachia-38cc75.netlify.app",
       },
       
       {
         imageSrc: "./images/netflix.png",
-        projectName: "Netflix Clone",
+        projectName: "Netflix",
         projectURL: "https://main--loquacious-moxie-a5ec06.netlify.app/",
       },
       {
         imageSrc: "./images/amazon.png",
-        projectName: "Amazon clone",
+        projectName: "Amazon",
         projectURL: "https://astounding-maamoul-8fd06a.netlify.app/",
       },
       {
         imageSrc: "./images/portfolio2.0.png",
-        projectName: "Portfolio Design",
+        projectName: "Portfolio",
         projectURL: "https://ltp-portfolio.netlify.app/",
       },
       {
         imageSrc: "./images/pomoclock.png",
-        projectName: "Pomodoro Clock",
+        projectName: "Pomo",
         projectURL: "https://portfolio-pomodoro-clock.netlify.app",
       },
       {
@@ -132,12 +147,12 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         imageSrc: "./images/dragon.png",
-        projectName: "FCC Dragon Repeller RPG",
+        projectName: "Dragon",
         projectURL: "https://dragon-slayer-rpg.netlify.app/",
       },
       {
         imageSrc: "./images/music.png",
-        projectName: "FCC Music Player",
+        projectName: "Music",
         projectURL: "https://js-music-player-fcc.netlify.app/",
       },
     ];
@@ -185,13 +200,13 @@ document.addEventListener("DOMContentLoaded", function () {
       // Create the project title with text overflow handling
       const projectTitle = createTextElement(
         "h2",
-        "font-bold text-white text-3xl relative z-10 shadow-md shadow-black/50 truncate",
+        "font-bold text-white text-2xl text-center relative z-10 shadow-md shadow-black/50 truncate",
         project.projectName
       );
     
       // Add a semi-transparent overlay behind the text for extra contrast
       const titleOverlay = createElementWithClasses("div", `
-        absolute inset-0 bg-black/40 rounded-md
+        absolute inset-0 bg-black/40 w-full rounded-md
       `);
     
       // Wrap the title and overlay in a container to stack them
